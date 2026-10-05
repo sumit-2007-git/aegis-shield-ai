@@ -6,14 +6,26 @@
     <title>AegisLocal AI - On-Device Threat & Phishing Sentinel</title>
     
     <!-- PWA & Mobile Web App Meta -->
+    <meta name="description" content="100% on-device AI security assistant that detects phishing links and scam communications in real time without cloud telemetry.">
     <link rel="manifest" href="/manifest.json">
     <meta name="theme-color" content="#0a0d14">
     <meta name="mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="apple-mobile-web-app-title" content="AegisLocal">
-    <link rel="apple-touch-icon" href="/static/icon-192.svg">
-    <link rel="icon" type="image/svg+xml" href="/static/icon-192.svg">
+    <link rel="apple-touch-icon" href="/static/icon-192.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="/static/icon-192.png">
+    <link rel="icon" type="image/png" sizes="512x512" href="/static/icon-512.png">
+
+    <script>
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+          navigator.serviceWorker.register('/sw.js', { scope: '/' })
+            .then(reg => console.log('SW Registered with scope:', reg.scope))
+            .catch(err => console.error('SW Registration failed:', err));
+        });
+      }
+    </script>
 
     <link rel="stylesheet" href="/static/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">

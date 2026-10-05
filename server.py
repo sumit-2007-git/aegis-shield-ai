@@ -161,16 +161,28 @@ app.mount("/static", StaticFiles(directory=os.path.join(web_dir, "static")), nam
 
 @app.get("/manifest.json")
 async def serve_manifest():
-    return FileResponse(os.path.join(web_dir, "manifest.json"), media_type="application/manifest+json")
+    return FileResponse(
+        os.path.join(web_dir, "manifest.json"), 
+        media_type="application/manifest+json",
+        headers={"Cache-Control": "no-cache"}
+    )
 
 @app.get("/sw.js")
 async def serve_sw():
     return FileResponse(
         os.path.join(web_dir, "sw.js"), 
         media_type="application/javascript",
-        headers={"Service-Worker-Allowed": "/"}
+        headers={
+            "Service-Worker-Allowed": "/",
+            "Cache-Control": "no-cache"
+        }
     )
 
 @app.get("/")
 async def serve_index():
     return FileResponse(os.path.join(web_dir, "index.html"))
+
+if __name__ == "__main__":
+    import uvicorn
+    port = int(os.environ.get("PORT", 8000))
+    uvicorn.run("server:app", host="0.0.0.0", port=port, reload=False)

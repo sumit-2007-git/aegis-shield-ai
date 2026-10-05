@@ -1,24 +1,66 @@
 {
+  "id": "/",
   "name": "AegisLocal - On-Device Security",
   "short_name": "AegisLocal",
   "description": "On-Device Threat, Phishing and Scam Intelligence Sentinel",
   "start_url": "/",
+  "scope": "/",
   "display": "standalone",
   "orientation": "portrait",
   "background_color": "#0a0d14",
   "theme_color": "#0a0d14",
+  "lang": "en",
+  "dir": "ltr",
+  "categories": ["security", "utilities", "productivity"],
   "icons": [
     {
-      "src": "/static/icon-192.svg",
+      "src": "/static/icon-192.png",
       "sizes": "192x192",
-      "type": "image/svg+xml",
-      "purpose": "any maskable"
+      "type": "image/png",
+      "purpose": "any"
     },
     {
-      "src": "/static/icon-512.svg",
+      "src": "/static/icon-512.png",
       "sizes": "512x512",
-      "type": "image/svg+xml",
-      "purpose": "any maskable"
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/static/icon-maskable-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
     }
-  ]
+  ],
+  "screenshots": [
+    {
+      "src": "/static/screenshot-mobile.png",
+      "sizes": "1080x1920",
+      "type": "image/png",
+      "form_factor": "narrow",
+      "label": "Mobile Threat Scanner & SMS Interceptor"
+    },
+    {
+      "src": "/static/screenshot-desktop.png",
+      "sizes": "1280x720",
+      "type": "image/png",
+      "form_factor": "wide",
+      "label": "Desktop Cyber Defense Console"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Scan Message",
+      "short_name": "Scan",
+      "description": "Quickly inspect a suspicious link or text",
+      "url": "/?action=scan",
+      "icons": [
+        {
+          "src": "/static/icon-192.png",
+          "sizes": "192x192"
+        }
+      ]
+    }
+  ],
+  "prefer_related_applications": false
 }

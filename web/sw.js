@@ -1,11 +1,16 @@
-const CACHE_NAME = 'aegis-local-v1';
+const CACHE_NAME = 'aegis-local-v2';
+const OFFLINE_URL = '/';
+
 const ASSETS_TO_CACHE = [
   '/',
   '/manifest.json',
   '/static/style.css',
   '/static/app.js',
-  '/static/icon-192.svg',
-  '/static/icon-512.svg'
+  '/static/icon-192.png',
+  '/static/icon-512.png',
+  '/static/icon-maskable-512.png',
+  '/static/screenshot-mobile.png',
+  '/static/screenshot-desktop.png'
 ];
 
 self.addEventListener('install', (event) => {
@@ -33,16 +38,31 @@ self.addEventListener('activate', (event) => {
 });
 
 self.addEventListener('fetch', (event) => {
-  // If API request, let it go to local network server
-  if (event.request.url.includes('/api/')) {
-    event.respondWith(fetch(event.request));
+  if (event.request.method !== 'GET') {
     return;
   }
 
-  // Otherwise serve cached static shell
+  // Network first with cache fallback
   event.respondWith(
-    caches.match(event.request).then((cachedResponse) => {
-      return cachedResponse || fetch(event.request);
-    })
+    fetch(event.request)
+      .then((networkResponse) => {
+        if (networkResponse && networkResponse.status === 200) {
+          const responseToCache = networkResponse.clone();
+          caches.open(CACHE_NAME).then((cache) => {
+            cache.put(event.request, responseToCache);
+          });
+        }
+        return networkResponse;
+      })
+      .catch(() => {
+        return caches.match(event.request).then((cachedResponse) => {
+          if (cachedResponse) {
+            return cachedResponse;
+          }
+          if (event.request.mode === 'navigate') {
+            return caches.match(OFFLINE_URL);
+          }
+        });
+      })
   );
 });

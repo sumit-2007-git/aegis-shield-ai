@@ -1,11 +1,4 @@
 document.addEventListener("DOMContentLoaded", () => {
-    // Service Worker Registration for PWA Mobile App
-    if ('serviceWorker' in navigator) {
-        navigator.serviceWorker.register('/sw.js').catch(err => {
-            console.log("Service Worker registration skipped:", err);
-        });
-    }
-
     // PWA Install prompt capture
     let deferredPrompt;
     const pwaInstallBtn = document.getElementById("pwaInstallBtn");
