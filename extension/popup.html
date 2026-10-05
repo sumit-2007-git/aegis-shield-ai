@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="ext-container">
+    <div class="ext-header">
+      <div class="ext-brand">
+        <span class="icon">🛡️</span>
+        <span class="title">AegisLocal Sentinel</span>
+      </div>
+      <span class="privacy-badge">🔒 100% Offline</span>
+    </div>
+
+    <!-- Active Tab Scanner -->
+    <div class="active-tab-box">
+      <label>Active Page URL:</label>
+      <div id="activeTabUrl" class="tab-url-text">Detecting active tab...</div>
+      <button id="scanActiveUrlBtn" class="ext-btn btn-scan">Scan Active URL</button>
+    </div>
+
+    <!-- Quick Text Box -->
+    <div class="text-box">
+      <textarea id="extInput" placeholder="Or paste suspicious message/link..."></textarea>
+      <button id="scanExtTextBtn" class="ext-btn">Analyze Threat (Local)</button>
+    </div>
+
+    <!-- Results Area -->
+    <div id="extResult" class="ext-result hidden">
+      <div class="res-badge" id="extBadge">VERDICT</div>
+      <div class="res-score">Risk Score: <strong id="extScore">0</strong>/100</div>
+      <div class="res-latency" id="extLatency">⚡ Latency: 0ms</div>
+      <div class="res-reason" id="extReason">Reasoning...</div>
+    </div>
+  </div>
+  <script src="popup.js"></script>
+</body>
+</html>

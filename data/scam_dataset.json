@@ -1,0 +1,152 @@
+[
+  {
+    "text": "Dear customer, your SBI YONO account has been suspended due to pending KYC update. Click here to update your PAN and Aadhaar immediately to avoid permanent deactivation: http://sbi-kyc-update.xyz/login",
+    "label": "scam",
+    "category": "KYC_BANKING_FRAUD",
+    "urgency": "high"
+  },
+  {
+    "text": "Dear Customer, Your electricity power will be disconnected tonight at 9:30 PM from the electricity office because your previous month bill was not updated. Please immediately contact our electricity officer at 9876543210. Thank you.",
+    "label": "scam",
+    "category": "UTILITY_DISCONNECTION_SCAM",
+    "urgency": "critical"
+  },
+  {
+    "text": "Congratulations! Your mobile number has won Rs 25,00,000 in KBC Lottery 2026. To claim your lottery amount, WhatsApp your photo and Aadhaar card to +91-9123456789.",
+    "label": "scam",
+    "category": "LOTTERY_JACKPOT_FRAUD",
+    "urgency": "medium"
+  },
+  {
+    "text": "Urgent Part-time Job Offer! Earn Rs 3000 to Rs 8000 daily by simply liking YouTube videos and rating Google Maps. Daily instant payout to UPI. Contact manager on Telegram: t.me/fast_money_payouts",
+    "label": "scam",
+    "category": "PART_TIME_JOB_SCAM",
+    "urgency": "medium"
+  },
+  {
+    "text": "Income Tax Department: Refund of Rs 18,450 has been approved for your PAN. Please verify your bank account details within 24 hours to credit the amount: http://incometax-refund-gov.click/verify",
+    "label": "scam",
+    "category": "TAX_REFUND_FRAUD",
+    "urgency": "high"
+  },
+  {
+    "text": "India Post alert: Your package #IN9841289 could not be delivered due to incorrect street address. Please update your address within 12 hours or item will be returned: http://indiapost-parcel-redelivery.top/address",
+    "label": "scam",
+    "category": "COURIER_DELIVERY_SCAM",
+    "urgency": "high"
+  },
+  {
+    "text": "HDFC Bank Alert: Your net banking has been blocked due to suspicious activity. Download this security APK to restore access immediately: http://hdfc-security-apk.download/app.apk",
+    "label": "scam",
+    "category": "MALICIOUS_APP_FRAUD",
+    "urgency": "critical"
+  },
+  {
+    "text": "Dear user, your SIM card will be deactivated in 24 hours as Aadhaar biometric verification is pending. Call customer care 8765432109 or visit http://airtel-sim-verify.tk",
+    "label": "scam",
+    "category": "SIM_SWAP_FRAUD",
+    "urgency": "high"
+  },
+  {
+    "text": "Dear customer, Rs 45,000 has been debited from your card for iPhone 15 on Amazon. If not you, immediately click http://amazon-dispute-cancellation.xyz to cancel transaction.",
+    "label": "scam",
+    "category": "TRANSACTION_PANIC_SCAM",
+    "urgency": "critical"
+  },
+  {
+    "text": "Alert: We detected unauthorized login attempt to your PayPal account from Russia. If this wasn't you, verify your identity now: http://paypa1-security-check.com/login",
+    "label": "scam",
+    "category": "ACCOUNT_TAKEOVER_PHISHING",
+    "urgency": "critical"
+  },
+  {
+    "text": "Hello mom, I lost my phone and wallet while traveling. I am using my friend's number. Can you urgently send Rs 15,000 to this UPI ID: friendemergency@upi? I will call later.",
+    "label": "scam",
+    "category": "IMPERSONATION_FAMILY_EMERGENCY",
+    "urgency": "critical"
+  },
+  {
+    "text": "WhatsApp Gold is now available exclusively! Get video calling with 100 people and secret themes. Upgrade now: http://whatsapp-gold-update.xyz/download",
+    "label": "scam",
+    "category": "MALICIOUS_APP_FRAUD",
+    "urgency": "low"
+  },
+  {
+    "text": "Your Netflix membership has expired. Update your billing card now to prevent interruption of streaming: http://netflix-billing-renew.work/payment",
+    "label": "scam",
+    "category": "SUBSCRIPTION_PHISHING",
+    "urgency": "medium"
+  },
+  {
+    "text": "Instant pre-approved loan of Rs 5,00,000 sanctioned with 0% interest and no CIBIL check. Pay processing fee of Rs 1,499 to claim: http://instant-dhan-loan.xyz/apply",
+    "label": "scam",
+    "category": "LOAN_ADVANCE_FEE_SCAM",
+    "urgency": "medium"
+  },
+  {
+    "text": "Urgent notice: Police case registered against your Aadhaar for illegal money laundering. Transfer penalty amount to avoid arrest: call CBI officer at 9811223344.",
+    "label": "scam",
+    "category": "DIGITAL_ARREST_SCAM",
+    "urgency": "critical"
+  },
+  {
+    "text": "Dear Customer, 482910 is the OTP for transaction of Rs 1,250.00 on Swiggy with your HDFC Bank Card ending 4412. OTP valid for 5 mins. Do not share OTP with anyone.",
+    "label": "legitimate",
+    "category": "BANK_OTP_AUTHENTICATION",
+    "urgency": "none"
+  },
+  {
+    "text": "Your SBI account XX8901 is credited with Rs 45,000.00 on 05-Oct-26 by salary transfer NEFT. Available balance is Rs 62,340.50 - State Bank of India.",
+    "label": "legitimate",
+    "category": "BANK_TRANSACTION_ALERT",
+    "urgency": "none"
+  },
+  {
+    "text": "Hi Rahul, are we still meeting for coffee today at 5 PM at Starbucks? Let me know if you are free.",
+    "label": "legitimate",
+    "category": "PERSONAL_COMMUNICATION",
+    "urgency": "none"
+  },
+  {
+    "text": "Your Amazon package containing 'Logitech Wireless Mouse' is out for delivery today. Track your order on the official Amazon app.",
+    "label": "legitimate",
+    "category": "ECOMMERCE_SHIPPING",
+    "urgency": "none"
+  },
+  {
+    "text": "Google Security Alert: A new sign-in from Chrome on Windows was detected for your account rahul.verma@gmail.com. If this was you, no action is needed.",
+    "label": "legitimate",
+    "category": "SECURITY_NOTIFICATION",
+    "urgency": "low"
+  },
+  {
+    "text": "Dear Passenger, your train 12952 MUMBAI RAJDHANI is scheduled to depart at 16:55 from Platform 3. Have a safe journey - IRCTC.",
+    "label": "legitimate",
+    "category": "TRAVEL_NOTIFICATION",
+    "urgency": "none"
+  },
+  {
+    "text": "Reminder: Your appointment with Dr. Sharma is confirmed for tomorrow at 11:30 AM at Apollo Clinic. Please arrive 10 minutes prior.",
+    "label": "legitimate",
+    "category": "APPOINTMENT_REMINDER",
+    "urgency": "none"
+  },
+  {
+    "text": "Your monthly mobile bill for Airtel postpaid 9810012345 of Rs 589 is generated. Due date is 15-Oct-26. Pay safely through Airtel Thanks App.",
+    "label": "legitimate",
+    "category": "UTILITY_BILL_STATEMENT",
+    "urgency": "none"
+  },
+  {
+    "text": "Hey team, the project sync meeting has been moved to 3:30 PM due to client presentation. Please review the shared slides beforehand.",
+    "label": "legitimate",
+    "category": "WORKPLACE_COMMUNICATION",
+    "urgency": "none"
+  },
+  {
+    "text": "GitHub: [Security] Dependabot alert was created in your repository for package cryptography version update.",
+    "label": "legitimate",
+    "category": "DEVELOPER_NOTIFICATION",
+    "urgency": "none"
+  }
+]

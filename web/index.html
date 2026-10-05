@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>AegisLocal AI - On-Device Threat & Phishing Sentinel</title>
+    
+    <!-- PWA & Mobile Web App Meta -->
+    <link rel="manifest" href="/manifest.json">
+    <meta name="theme-color" content="#0a0d14">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="AegisLocal">
+    <link rel="apple-touch-icon" href="/static/icon-192.svg">
+    <link rel="icon" type="image/svg+xml" href="/static/icon-192.svg">
+
+    <link rel="stylesheet" href="/static/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Top Navigation / Status Header -->
+        <header class="app-header">
+            <div class="brand">
+                <div class="brand-icon">🛡️</div>
+                <div class="brand-text">
+                    <h1>AEGIS LOCAL <span class="badge-ai">MOBILE</span></h1>
+                    <p class="subtitle">On-Device Phishing & Scam Sentinel (PS-05)</p>
+                </div>
+            </div>
+            
+            <div class="header-actions">
+                <button id="pwaInstallBtn" class="btn-pill btn-install hidden">
+                    <span>📲</span> Install Mobile App
+                </button>
+                <button id="openMobileModalBtn" class="btn-pill btn-mobile">
+                    <span>📱</span> Connect Phone
+                </button>
+            </div>
+
+            <div class="header-telemetry desktop-only">
+                <div class="telemetry-badge telemetry-privacy">
+                    <span class="status-dot green"></span>
+                    <span class="telemetry-label">PRIVACY:</span>
+                    <span class="telemetry-value">100% OFFLINE</span>
+                </div>
+                <div class="telemetry-badge telemetry-latency">
+                    <span class="telemetry-label">LATENCY:</span>
+                    <span class="telemetry-value" id="headerLatency">⚡ 0.0 ms</span>
+                </div>
+                <div class="telemetry-badge telemetry-status">
+                    <span class="status-dot pulsing"></span>
+                    <span class="telemetry-value">LOCAL CPU</span>
+                </div>
+            </div>
+        </header>
+
+        <!-- Notification Banner for Clipboard Watchdog -->
+        <div id="clipboardAlert" class="clipboard-banner hidden">
+            <div class="banner-content">
+                <span class="banner-icon">⚠️</span>
+                <div class="banner-text">
+                    <strong>Clipboard Threat Detected:</strong> <span id="clipboardAlertText"></span>
+                </div>
+            </div>
+            <button id="viewClipboardBtn" class="btn-sm">Inspect Now</button>
+        </div>
+
+        <!-- Main Workspace Grid -->
+        <main class="main-grid">
+            <!-- Left Panel: Input & Quick Scenarios -->
+            <section class="card input-panel">
+                <!-- Mode Switcher Tabs (Direct Input vs Simulated SMS Inbox) -->
+                <div class="mode-tabs">
+                    <button class="mode-tab active" id="tabDirectInput">✍️ Text / Link Inspector</button>
+                    <button class="mode-tab" id="tabSmsInbox">📩 Simulated SMS Inbox</button>
+                </div>
+
+                <!-- View A: Direct Input -->
+                <div id="viewDirectInput" class="view-content">
+                    <div class="card-header">
+                        <h2>Threat Inspection Console</h2>
+                        <div class="toggle-container">
+                            <label class="switch">
+                                <input type="checkbox" id="clipboardToggle">
+                                <span class="slider round"></span>
+                            </label>
+                            <span class="toggle-label">Auto Clipboard Guard</span>
+                        </div>
+                    </div>
+
+                    <!-- 1-Click Judge Demo Scenarios -->
+                    <div class="scenario-section">
+                        <label class="section-label">⚡ 1-Click Judge Test Scenarios (Instant Verification)</label>
+                        <div class="scenario-chips" id="scenarioChips">
+                            <!-- Loaded via JS -->
+                        </div>
+                    </div>
+
+                    <!-- Input Textarea -->
+                    <div class="input-wrapper">
+                        <label for="threatInput" class="section-label">Enter Message, SMS, WhatsApp Text or Link:</label>
+                        <textarea 
+                            id="threatInput" 
+                            placeholder="Paste suspicious text, bank alert, WhatsApp message, or website link here...&#10;Example: 'Dear customer, your SBI account is suspended. Update KYC at http://sbi-verification.xyz'"
+                            rows="5"
+                        ></textarea>
+                    </div>
+
+                    <!-- Control Buttons -->
+                    <div class="action-bar">
+                        <button id="scanBtn" class="btn btn-primary">
+                            <span class="btn-icon">⚡</span> Analyze Threat (Local CPU)
+                        </button>
+                        <button id="pasteBtn" class="btn btn-secondary">
+                            <span class="btn-icon">📋</span> Paste & Scan
+                        </button>
+                        <button id="clearBtn" class="btn btn-ghost">Clear</button>
+                    </div>
+                </div>
+
+                <!-- View B: Simulated Android SMS Inbox -->
+                <div id="viewSmsInbox" class="view-content hidden">
+                    <div class="sms-inbox-header">
+                        <h3>📱 Mobile SMS Threat Interceptor</h3>
+                        <p class="sms-sub">Simulates on-device background scanning of incoming phone messages.</p>
+                    </div>
+                    <div class="sms-list" id="smsList">
+                        <!-- Injected via JS -->
+                    </div>
+                </div>
+
+                <!-- Quick Architecture Metrics -->
+                <div class="spec-metrics desktop-only">
+                    <div class="metric-box">
+                        <span class="metric-title">Engine Architecture</span>
+                        <span class="metric-data">Heuristic + Calibrated NLP</span>
+                    </div>
+                    <div class="metric-box">
+                        <span class="metric-title">Target Execution</span>
+                        <span class="metric-data">On-Device Edge (Python/C)</span>
+                    </div>
+                    <div class="metric-box">
+                        <span class="metric-title">Data Ingestion</span>
+                        <span class="metric-data">Zero Telemetry (Volatile Memory)</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Right Panel: Threat Verdict & Explainable AI (XAI) -->
+            <section class="card results-panel" id="resultsPanel">
+                <!-- Idle State Placeholder -->
+                <div id="idleState" class="panel-placeholder">
+                    <div class="placeholder-icon">🔍</div>
+                    <h3>Ready for Threat Analysis</h3>
+                    <p>Enter text, tap a quick test scenario, or select a message from the SMS Inbox to see instant on-device verdicts.</p>
+                </div>
+
+                <!-- Active Result Display (Hidden initially) -->
+                <div id="resultContent" class="result-content hidden">
+                    <!-- Top Verdict Header -->
+                    <div class="verdict-card" id="verdictCard">
+                        <div class="verdict-summary">
+                            <span class="verdict-tag" id="threatLevelTag">CRITICAL THREAT</span>
+                            <h2 class="verdict-title" id="verdictTitle">DANGEROUS SCAM / PHISHING</h2>
+                            <p class="verdict-category" id="verdictCategory">Category: Banking KYC Fraud</p>
+                        </div>
+                        <div class="risk-meter-wrapper">
+                            <div class="risk-circle" id="riskCircle">
+                                <span class="risk-number" id="riskNumber">88</span>
+                                <span class="risk-label">RISK SCORE</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Performance & Telemetry Strip -->
+                    <div class="telemetry-strip">
+                        <div class="telemetry-item">
+                            <span class="t-label">Speed:</span>
+                            <strong class="t-value highlight-cyan" id="telemetryLatency">7.4 ms</strong>
+                        </div>
+                        <div class="telemetry-item">
+                            <span class="t-label">Cloud Calls:</span>
+                            <strong class="t-value highlight-green" id="telemetryCalls">0 (Offline)</strong>
+                        </div>
+                        <div class="telemetry-item">
+                            <span class="t-label">Privacy:</span>
+                            <strong class="t-value highlight-green">Air-Gapped</strong>
+                        </div>
+                    </div>
+
+                    <!-- Explainable AI Highlighted Text -->
+                    <div class="xai-section">
+                        <label class="section-label">🎯 Explainable AI: Highlighted Red Flags</label>
+                        <div class="annotated-text-box" id="annotatedTextBox">
+                            <!-- Visual markup rendered here -->
+                        </div>
+                    </div>
+
+                    <!-- Red Flag Breakdown -->
+                    <div class="xai-section">
+                        <label class="section-label">⚠️ Decision Reasoning (Why Flagged?)</label>
+                        <div class="reasons-list" id="reasonsList">
+                            <!-- Injected via JS -->
+                        </div>
+                    </div>
+
+                    <!-- Safe Recommendations -->
+                    <div class="xai-section">
+                        <label class="section-label">🛡️ Immediate Safety Recommendations</label>
+                        <ul class="recommendation-list" id="recommendationsList">
+                            <!-- Injected via JS -->
+                        </ul>
+                    </div>
+
+                    <!-- URL Details if links are detected -->
+                    <div class="xai-section hidden" id="urlDetailsSection">
+                        <label class="section-label">🔗 Domain & URL Forensic Breakdown</label>
+                        <div class="url-cards" id="urlCardsList">
+                            <!-- Injected via JS -->
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- Mobile Phone Connect QR Modal -->
+        <div id="mobileModal" class="modal-overlay hidden">
+            <div class="modal-card">
+                <div class="modal-header">
+                    <h3>📱 Open AegisLocal on your Phone</h3>
+                    <button id="closeModalBtn" class="close-btn">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <p class="modal-desc">Connect your phone to the same Wi-Fi and scan this QR code to run AegisLocal as a mobile app!</p>
+                    <div class="qr-code-box" id="qrCodeContainer">
+                        <img id="qrCodeImg" alt="Scan to open on mobile" class="qr-image" />
+                    </div>
+                    <div class="mobile-link-box">
+                        <span class="link-label">Or open in mobile browser:</span>
+                        <a id="mobileLinkUrl" href="#" target="_blank" class="mobile-direct-link">Loading...</a>
+                    </div>
+                    <div class="mobile-install-steps">
+                        <h4>📲 How to Install as an App on Phone:</h4>
+                        <ol>
+                            <li>Open link above on your Android Chrome or iOS Safari.</li>
+                            <li>Tap <strong>"Install Mobile App"</strong> or browser menu (⋮) &rarr; <strong>"Install App"</strong> / <strong>"Add to Home Screen"</strong>.</li>
+                            <li>The app icon installs right on your phone home screen!</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Bottom Footer with Hackathon Attribution -->
+        <footer class="app-footer">
+            <p><strong>AegisLocal AI</strong> &mdash; Built for Hackathon PS-05: <em>On-device threat, phishing and scam detection</em>.</p>
+            <p class="privacy-note">🔒 Zero user data leaves this device. 100% on-device edge processing.</p>
+        </footer>
+    </div>
+
+    <script src="/static/app.js"></script>
+</body>
+</html>

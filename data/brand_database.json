@@ -1,0 +1,48 @@
+{
+  "brands": [
+    {"name": "State Bank of India (SBI)", "domain": "onlinesbi.sbi", "aliases": ["sbi", "onlinesbi", "sbicard", "yono", "yonosbi"]},
+    {"name": "HDFC Bank", "domain": "hdfcbank.com", "aliases": ["hdfc", "hdfcbank", "hdfcsec"]},
+    {"name": "ICICI Bank", "domain": "icicibank.com", "aliases": ["icici", "icicibank", "icicidirect"]},
+    {"name": "Axis Bank", "domain": "axisbank.com", "aliases": ["axis", "axisbank"]},
+    {"name": "Kotak Mahindra Bank", "domain": "kotak.com", "aliases": ["kotak", "kotakbank", "kotak811"]},
+    {"name": "Punjab National Bank", "domain": "pnbindia.in", "aliases": ["pnb", "pnbindia"]},
+    {"name": "Bank of Baroda", "domain": "bankofbaroda.in", "aliases": ["bob", "bankofbaroda"]},
+    {"name": "Paytm Payments Bank", "domain": "paytm.com", "aliases": ["paytm", "paytmbank"]},
+    {"name": "PhonePe", "domain": "phonepe.com", "aliases": ["phonepe"]},
+    {"name": "Google Pay", "domain": "pay.google.com", "aliases": ["gpay", "googlepay"]},
+    {"name": "PayPal", "domain": "paypal.com", "aliases": ["paypal", "paypal-service"]},
+    {"name": "Google", "domain": "google.com", "aliases": ["google", "gmail", "googlemail", "accounts.google.com"]},
+    {"name": "Microsoft", "domain": "microsoft.com", "aliases": ["microsoft", "office365", "outlook", "live", "msn"]},
+    {"name": "Apple", "domain": "apple.com", "aliases": ["apple", "icloud", "appleid"]},
+    {"name": "Amazon", "domain": "amazon.in", "aliases": ["amazon", "amazonpay", "aws"]},
+    {"name": "Netflix", "domain": "netflix.com", "aliases": ["netflix"]},
+    {"name": "Meta / Facebook", "domain": "facebook.com", "aliases": ["facebook", "fb", "meta", "instagram", "whatsapp"]},
+    {"name": "WhatsApp", "domain": "whatsapp.com", "aliases": ["whatsapp", "wa.me"]},
+    {"name": "Telegram", "domain": "telegram.org", "aliases": ["telegram", "t.me"]},
+    {"name": "Income Tax Department India", "domain": "incometax.gov.in", "aliases": ["incometax", "incometaxindia", "efiling"]},
+    {"name": "UIDAI / Aadhaar", "domain": "uidai.gov.in", "aliases": ["uidai", "myaadhaar", "eaadhaar"]},
+    {"name": "EPFO", "domain": "epfindia.gov.in", "aliases": ["epfindia", "epfo"]},
+    {"name": "India Post", "domain": "indiapost.gov.in", "aliases": ["indiapost", "indiapostgdsonline"]},
+    {"name": "Mahavitaran / Electricity", "domain": "mahadiscom.in", "aliases": ["mahadiscom", "electricitybill", "bses", "bescom"]},
+    {"name": "Airtel", "domain": "airtel.in", "aliases": ["airtel", "airtelthanks"]},
+    {"name": "Reliance Jio", "domain": "jio.com", "aliases": ["jio", "myjio"]},
+    {"name": "Chase Bank", "domain": "chase.com", "aliases": ["chase", "jpmorgan"]},
+    {"name": "Bank of America", "domain": "bankofamerica.com", "aliases": ["bofa", "bankofamerica"]},
+    {"name": "Wells Fargo", "domain": "wellsfargo.com", "aliases": ["wellsfargo"]},
+    {"name": "Binance", "domain": "binance.com", "aliases": ["binance"]},
+    {"name": "Coinbase", "domain": "coinbase.com", "aliases": ["coinbase"]},
+    {"name": "DHL Express", "domain": "dhl.com", "aliases": ["dhl", "dhlexpress"]},
+    {"name": "FedEx", "domain": "fedex.com", "aliases": ["fedex"]}
+  ],
+  "suspicious_tlds": [
+    ".tk", ".ml", ".ga", ".cf", ".gq", ".xyz", ".top", ".work", ".loan", 
+    ".click", ".fit", ".country", ".kim", ".cricket", ".science", ".party", 
+    ".gdn", ".racing", ".stream", ".trade", ".bid", ".review", ".zip", ".mov"
+  ],
+  "phishing_keywords": [
+    "verify", "verification", "secure", "security", "update", "kyc", "yono",
+    "login", "signin", "account-update", "suspend", "suspended", "reactivate",
+    "unblock", "pan-update", "aadhaar-link", "banking", "wallet", "rewards",
+    "refund", "cashback", "lottery", "urgent", "bill-payment", "disconnection"
+  ]
+}
